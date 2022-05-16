@@ -46,7 +46,7 @@ public void ProcessWord(string aNewFileName)
      - HideHeader - is need to hide header of table, true/false (false by default)
      - ExportedColumns - custom columns names for export from datasource (null by default - export all)
 
-__Can export image as column data type where value as path of file. You should to mark that field by ExcelHelper.ExcelImagePath attribute__
+_ _Can export image as column data type where value as path of file. You should to mark that field by ExcelHelper.ExcelImagePath attribute_ _
 
 ```
         public void CreateExcel(string aFileName)
