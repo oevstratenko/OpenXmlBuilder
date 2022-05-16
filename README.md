@@ -46,8 +46,6 @@ public void ProcessWord(string aNewFileName)
      - HideHeader - is need to hide header of table, true/false (false by default)
      - ExportedColumns - custom columns names for export from datasource (null by default - export all)
 
-_ _Can export image as column data type where value as path of file. You should to mark that field by ExcelHelper.ExcelImagePath attribute_ _
-
 ```
         public void CreateExcel(string aFileName)
         {
@@ -79,3 +77,26 @@ _ _Can export image as column data type where value as path of file. You should 
             esb.SaveToFile(aFileName, "Sheet2", false);
         }
  ```
+
+_Can export image to column where value is path of file. You should mark that field by ExcelHelper.ExcelImagePath attribute_
+```
+public class ListItem
+{
+    public int      Id          { get; set; }
+    public string   Name        { get; set; }
+    public string   Description { get; set; }
+    [ExcelHelper.ExcelImagePath(180)]
+    public string Image
+    {
+        get
+        {
+            if (Id % 10 != 0)
+            {
+                return string.Empty;
+            }
+            return $"{Directory.GetCurrentDirectory()}\\Source\\ms-.net-framework.jpg";
+        }
+        set { }
+    }
+}
+```
